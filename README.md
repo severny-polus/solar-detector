@@ -1,1 +1,1 @@
-# solar-detector
+# Датчик солнца
