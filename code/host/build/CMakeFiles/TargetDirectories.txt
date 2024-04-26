@@ -1,3 +1,0 @@
-/home/Roman/Projects/solar-detector/code/host/build/CMakeFiles/host.dir
-/home/Roman/Projects/solar-detector/code/host/build/CMakeFiles/edit_cache.dir
-/home/Roman/Projects/solar-detector/code/host/build/CMakeFiles/rebuild_cache.dir

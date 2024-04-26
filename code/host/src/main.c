@@ -30,7 +30,7 @@ int set_uart_settings(int fd)
 
 int main()
 {
-  char *uart = "/dev/ttyUSB1";
+  char *uart = "/dev/ttyUSB1"; // todo: вынести в аргументы
 
   int fd = open(uart, O_RDWR | O_NONBLOCK);
   if (fd < 0)
