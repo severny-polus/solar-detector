@@ -1,0 +1,3 @@
+{
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, BreakBeforeBraces: Allman, IndentWidth: 2, PointerAlignment: Right, ColumnLimit: 80, AllowShortFunctionsOnASingleLine: Empty, AccessModifierOffset: -4, EmptyLineBeforeAccessModifier: Leave, ReflowComments: false, AlignOperands: AlignAfterOperator, BreakBeforeBinaryOperators: NonAssignment }"
+}
