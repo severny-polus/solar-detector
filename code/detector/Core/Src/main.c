@@ -101,7 +101,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  char buffer[256] = "Hello, UART! ";
+  char buffer[256] = "Hello, UART!\n\r";
   while (1)
   {
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
@@ -109,7 +109,7 @@ int main(void)
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
     HAL_Delay(500);
 
-    HAL_UART_Transmit_IT(&huart1, buffer, 13);
+    HAL_UART_Transmit_IT(&huart1, buffer, 14);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

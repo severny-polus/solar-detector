@@ -1,3 +1,19 @@
 {
-    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, BreakBeforeBraces: Allman, IndentWidth: 2, PointerAlignment: Right, ColumnLimit: 80, AllowShortFunctionsOnASingleLine: Empty, AccessModifierOffset: -4, EmptyLineBeforeAccessModifier: Leave, ReflowComments: false, AlignOperands: AlignAfterOperator, BreakBeforeBinaryOperators: NonAssignment }"
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, BreakBeforeBraces: Allman, IndentWidth: 2, PointerAlignment: Right, ColumnLimit: 80, AllowShortFunctionsOnASingleLine: None, AccessModifierOffset: -4, EmptyLineBeforeAccessModifier: Leave, ReflowComments: false, AlignOperands: AlignAfterOperator, BreakBeforeBinaryOperators: NonAssignment }",
+    "files.associations": {
+        "iosfwd": "c",
+        "*.tcc": "c",
+        "fstream": "c",
+        "istream": "c",
+        "limits": "c",
+        "shared_mutex": "c",
+        "sstream": "c",
+        "stop_token": "c",
+        "streambuf": "c",
+        "__config": "c",
+        "__tree": "c",
+        "iomanip": "c",
+        "locale": "c",
+        "*.inc": "c"
+    }
 }

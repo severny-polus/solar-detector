@@ -4,7 +4,7 @@ PROJECT=detector
 
 $(BUILD_DIR)/$(PROJECT).elf: Core/Src/*
 	cmake -S . -B $(BUILD_DIR)
-	$(MAKE) -C $(BUILD_DIR) all
+	$(MAKE) -C $(BUILD_DIR)
 
 
 $(BUILD_DIR)/$(PROJECT).bin: $(BUILD_DIR)/$(PROJECT).elf
