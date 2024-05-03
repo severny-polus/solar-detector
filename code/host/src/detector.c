@@ -10,19 +10,21 @@
 
 typedef struct termios termios;
 
-int uart_open(UART *uart, const char *path)
+int uart_open(UART *uart, char *device_name)
 {
-  uart->fd = open(path, O_RDWR | O_NONBLOCK);
+  char device_path[20];
+  sprintf(device_path, "/dev/%s", device_name);
+  uart->fd = open(device_path, O_RDWR | O_NONBLOCK);
   if (uart->fd < 0)
   {
-    printf("не удалось найти устройство: %s\n", path);
+    printf("не удалось открыть устройство: %s\n", device_name);
     return -1;
   }
 
   termios settings;
   if (tcgetattr(uart->fd, &settings) != 0)
   {
-    printf("не удалось получить настройки tty\n");
+    printf("не удалось получить настройки для устройства: %s\n", device_name);
     return -1;
   }
   cfsetispeed(&settings, B115200);
@@ -30,7 +32,7 @@ int uart_open(UART *uart, const char *path)
   cfmakeraw(&settings);
   if (tcsetattr(uart->fd, TCSANOW, &settings) != 0)
   {
-    printf("не удалось применить настройки tty\n");
+    printf("не удалось применить настройки для устройства: %s\n", device_name);
     return -1;
   }
 
