@@ -14,6 +14,7 @@
         "__tree": "c",
         "iomanip": "c",
         "locale": "c",
-        "*.inc": "c"
+        "*.inc": "c",
+        "stddef.h": "c"
     }
 }

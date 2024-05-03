@@ -1,7 +1,10 @@
-boot:
-	$(MAKE) -C code/detector boot
+all: detector host
+
+
+detector:
+	$(MAKE) -C code/detector
 
 
 host: 
-	$(MAKE) -C code/host host
+	$(MAKE) -C code/host
 	
