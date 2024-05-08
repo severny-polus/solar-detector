@@ -95,6 +95,6 @@ const float *detector_read_values(Detector *d)
 
 void detector_read_angles(Detector *d, float *phi, float *theta)
 {
-  const float *values = detector_read_values(d);
-  values_to_angles(values, phi, theta);
+  detector_read_values(d);
+  values_to_angles(d->values, phi, theta);
 }
