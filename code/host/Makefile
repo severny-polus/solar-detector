@@ -1,10 +1,9 @@
-PROJECT=host
-BUILD_DIR=build
+TARGET=host
 
+CC=gcc
+CFLAGS=-o $(TARGET) -lm
 
-$(BUILD_DIR)/$(PROJECT): $(BUILD_DIR)/Makefile src/*
-	$(MAKE) -C $(BUILD_DIR)
+SRC=$(wildcard src/*.c)
 
-
-$(BUILD_DIR)/Makefile: CMakeLists.txt src/*
-	cmake -S . -B $(BUILD_DIR)
+$(TARGET): $(SRC)
+	$(CC) $(CFLAGS) $(SRC)

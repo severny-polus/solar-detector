@@ -5,56 +5,49 @@
 #include <string.h>
 #include <unistd.h>
 
-#define BUFFER_SIZE 40
+#define BUFFER_SIZE 10
 #define PERIOD 100
+#define RADS_TO_ANGLES (180.0 / 3.1415)
 
 static float max[5] = {0};
 
 int main(int argc, char **argv)
 {
-  char *uart_path = argv[1];
-  if (uart_path == NULL)
+  char *device_name = argv[1];
+  if (device_name == NULL)
   {
     printf("устройство не найдено\n");
     return -1;
   }
 
-  UART *uart = malloc(sizeof(UART));
-  if (uart_open(uart, uart_path) != 0)
+  Detector *detector = detector_open(device_name);
+  if (detector == NULL)
   {
     return -1;
   }
-  printf("найдено устройство: %s\n", uart_path);
+  printf("подключено устройство: %s\n", device_name);
 
-  char buffer[BUFFER_SIZE] = {0};
-  uart_read(uart, buffer, BUFFER_SIZE);
   while (1)
   {
-    int n = uart_read(uart, buffer, BUFFER_SIZE);
+    const float *values = detector_read_values(detector);
 
-    switch (n)
+    if (values == NULL)
     {
-    case 20:
-      printf("max: ");
-
-      float *values = (float *)buffer;
-      for (int i = 0; i < n / sizeof(float); ++i)
-      {
-        if (values[i] > max[i])
-        {
-          max[i] = values[i];
-        }
-        printf("%.3f ", max[i]);
-      }
-      break;
-
-    case 0:
       printf("соединение потеряно\n");
       return -1;
-
-    default:
-      printf("пропуск");
     }
+
+    for (size_t i = 0; i < 5; ++i)
+    {
+      printf("%.3f ", values[i]);
+    }
+
+    printf("| ");
+
+    float phi, theta;
+    values_to_angles(values, &phi, &theta);
+    printf("phi = %.3f, theta = %.3f", phi * RADS_TO_ANGLES, theta * RADS_TO_ANGLES);
+
     printf("\n");
 
     usleep(PERIOD * 1000);
