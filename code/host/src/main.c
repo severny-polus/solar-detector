@@ -9,8 +9,6 @@
 #define PERIOD 100
 #define RADS_TO_ANGLES (180.0 / 3.141592654)
 
-static float max[5] = {0};
-
 int main(int argc, char **argv)
 {
   char *device_name = argv[1];
@@ -27,6 +25,8 @@ int main(int argc, char **argv)
   }
   printf("подключено устройство: %s\n", device_name);
 
+  float max[5] = {0};
+
   while (1)
   {
     const float *values = detector_read_values(detector);
@@ -37,16 +37,18 @@ int main(int argc, char **argv)
       return -1;
     }
 
+    update_max(max, values);
+
     for (size_t i = 0; i < 5; ++i)
     {
-      printf("%.3f ", values[i]);
+      printf("%.4f ", max[i]);
     }
 
-    printf("| ");
+    // printf("| ");
 
-    float phi, theta;
-    values_to_angles(values, &phi, &theta);
-    printf("phi = %.3f, theta = %.3f", phi * RADS_TO_ANGLES, theta * RADS_TO_ANGLES);
+    // float phi, theta;
+    // values_to_angles(values, &phi, &theta);
+    // printf("phi = %.3f, theta = %.3f", phi * RADS_TO_ANGLES, theta * RADS_TO_ANGLES);
 
     printf("\n");
 

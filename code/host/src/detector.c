@@ -25,6 +25,8 @@ Detector *detector_new()
   return d;
 }
 
+// Открывает UART-канал к прибору, указанному в параметре.
+//
 // device_name должен быть строкой вида "ttyUSBX"
 Detector *detector_open(char *device_name)
 {
@@ -57,14 +59,17 @@ Detector *detector_open(char *device_name)
   return d;
 }
 
-// фотодиоды располагаются по схеме
+// Конвертировать значения фотодиодов в углы.
+// Фотодиоды располагаются по схеме:
 //
 //       [1]
-//            
-//  [0]  [4]  [2]
+//
+//  [2]  [4]  [0]
 //
 //       [3]
 //
+// phi -- угол в горизонтальной плоскости (относительно луча 4-0 в сторону 1)
+// theta -- угол в вертикальной плоскости
 void values_to_angles(const float *values, float *phi, float *theta)
 {
   double x = values[0] - values[2];
@@ -77,6 +82,7 @@ void values_to_angles(const float *values, float *phi, float *theta)
   *theta = (float)atan2(r, z);
 }
 
+// Снятие значений с фотодиодов. Возвращает массив из 5 чисел типа float.
 const float *detector_read_values(Detector *d)
 {
   size_t n = read(d->fd, (char *)d->values, BUFFER_SIZE);
@@ -93,8 +99,21 @@ const float *detector_read_values(Detector *d)
   return d->values;
 }
 
+// Прочесть значения с фотодиодов и конвертировать в углы.
 void detector_read_angles(Detector *d, float *phi, float *theta)
 {
   detector_read_values(d);
   values_to_angles(d->values, phi, theta);
+}
+
+// Обновить максимальные значения
+void update_max(float *max, const float *values)
+{
+  for (size_t i = 0; i < NUM_ADC_CHANNELS; ++i)
+  {
+    if (values[i] > max[i])
+    {
+      max[i] = values[i];
+    }
+  }
 }
