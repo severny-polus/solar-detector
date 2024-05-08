@@ -7,7 +7,7 @@
 
 #define BUFFER_SIZE 10
 #define PERIOD 100
-#define RADS_TO_ANGLES (180.0 / 3.1415)
+#define RADS_TO_ANGLES (180.0 / 3.141592654)
 
 static float max[5] = {0};
 
