@@ -29,26 +29,15 @@ int main(int argc, char **argv)
 
   while (1)
   {
-    const float *values = detector_read_values(detector);
-
-    if (values == NULL)
+    float phi, theta;
+    if (detector_read_angles(detector, &phi, &theta) == -1)
     {
       printf("соединение потеряно\n");
       return -1;
     }
 
-    // update_max(max, values);
-
-    for (size_t i = 0; i < 5; ++i)
-    {
-      printf("%.3f ", values[i]);
-    }
-
-    printf("| ");
-
-    float phi, theta;
-    values_to_angles(values, &phi, &theta);
-    printf("phi = %.3f, theta = %.3f", phi * RADS_TO_ANGLES, theta * RADS_TO_ANGLES);
+    printf("phi = %.3f, theta = %.3f", phi * RADS_TO_ANGLES,
+           theta * RADS_TO_ANGLES);
 
     printf("\n");
 
