@@ -37,18 +37,18 @@ int main(int argc, char **argv)
       return -1;
     }
 
-    update_max(max, values);
+    // update_max(max, values);
 
     for (size_t i = 0; i < 5; ++i)
     {
-      printf("%.4f ", max[i]);
+      printf("%.3f ", values[i]);
     }
 
-    // printf("| ");
+    printf("| ");
 
-    // float phi, theta;
-    // values_to_angles(values, &phi, &theta);
-    // printf("phi = %.3f, theta = %.3f", phi * RADS_TO_ANGLES, theta * RADS_TO_ANGLES);
+    float phi, theta;
+    values_to_angles(values, &phi, &theta);
+    printf("phi = %.3f, theta = %.3f", phi * RADS_TO_ANGLES, theta * RADS_TO_ANGLES);
 
     printf("\n");
 

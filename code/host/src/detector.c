@@ -59,21 +59,12 @@ Detector *detector_open(char *device_name)
   return d;
 }
 
-// Конвертировать значения фотодиодов в углы.
-// Фотодиоды располагаются по схеме:
-//
-//       [1]
-//
-//  [2]  [4]  [0]
-//
-//       [3]
-//
-// phi -- угол в горизонтальной плоскости (относительно луча 4-0 в сторону 1)
-// theta -- угол в вертикальной плоскости
+// Конвертация значений фотодиодов в углы.
+// Зависит от расположения фотодиодов на плате.
 void values_to_angles(const float *values, float *phi, float *theta)
 {
-  double x = values[0] - values[2];
-  double y = values[1] - values[3];
+  double y = values[2] - values[0];
+  double x = -values[3]; // TODO: Заменить фотодиод
   double z = values[4];
 
   double r = sqrt(x * x + y * y);
