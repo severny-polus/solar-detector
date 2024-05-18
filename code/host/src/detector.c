@@ -93,8 +93,7 @@ const float *detector_read_values(Detector *d)
 // Прочесть значения с фотодиодов и конвертировать в углы.
 int detector_read_angles(Detector *d, float *phi, float *theta)
 {
-  detector_read_values(d);
-  if (d->values == NULL) {
+  if (detector_read_values(d) == NULL) {
     return -1;
   }
   values_to_angles(d->values, phi, theta);
