@@ -1,0 +1,121 @@
+{
+  "uuid": "15625838d4a4d609252c047dc2908369",
+  "path": "Offline/Microcontroller%20board(Photodiode%20plate)",
+  "name": "Microcontroller board(Photodiode plate)",
+  "content": "",
+  "created_at": "2024-04-26 15:29:38",
+  "updated_at": "2024-04-26 17:11:59",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "482c580fa906822927d27fa1d314b033",
+      "title": "Sheet_1",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "f5b1d9403e49471cab43bc5a1bec336f": 1,
+        "a9aa2b14f188405792fa87ac344499a4": 5,
+        "d851786b5c664ff789b13c0741460439": 2,
+        "d1967012734640e5b2f2cc1ea764740b": 5
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "HDR-M-2.54_1x4",
+          1,
+          "HDR-M-2.54_1X4",
+          "J1",
+          {
+            "BOM_Supplier Part": "C124378",
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "282f7786cb6144d097ae00194c3e3fb3",
+            "uuid": "f5b1d9403e49471cab43bc5a1bec336f"
+          }
+        ],
+        [
+          "HDR-M-2.54_1x2",
+          5,
+          "HDR-M-2.54_1X2",
+          "J2,J3,J4,J5,J6",
+          {
+            "BOM_Supplier Part": "C124375",
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "70aa5812f21f4991bf427395d51849f4",
+            "uuid": "a9aa2b14f188405792fa87ac344499a4"
+          }
+        ],
+        [
+          "HDR-M-2.54_1x20",
+          2,
+          "HDR-M-2.54_1X20",
+          "J7,J8",
+          {
+            "BOM_Supplier Part": "C50981",
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "fa8b3531a8854d41bcf2c462cb2bfc07",
+            "uuid": "d851786b5c664ff789b13c0741460439"
+          }
+        ],
+        [
+          "1k",
+          5,
+          "R_AXIAL-0.4",
+          "R1,R2,R3,R4,R5",
+          {
+            "BOM_Supplier Part": "",
+            "BOM_Supplier": "",
+            "BOM_Manufacturer Part": "",
+            "puuid": "5905db98cde4487fbb177070aa85bbe1",
+            "uuid": "d1967012734640e5b2f2cc1ea764740b"
+          }
+        ]
+      ],
+      "updateTime": 1714135119,
+      "createTime": 1714134578,
+      "histories": [],
+      "created_at": "2024-04-26 15:29:38",
+      "updated_at": "2024-04-26 15:38:39"
+    },
+    {
+      "uuid": "a67a788c2e5e4c8fb7bfd0214d0f8392",
+      "puuid": "15625838d4a4d609252c047dc2908369",
+      "title": "PCB_Microcontroller board(Photodiode plate)",
+      "filename": "PCB_Microcontroller board(Photodiode plate).json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "282f7786cb6144d097ae00194c3e3fb3": 1,
+        "70aa5812f21f4991bf427395d51849f4": 5,
+        "fa8b3531a8854d41bcf2c462cb2bfc07": 2,
+        "5905db98cde4487fbb177070aa85bbe1": 5
+      },
+      "BOM": [],
+      "updateTime": 1714140719,
+      "createTime": 1714135925,
+      "histories": [],
+      "created_at": "2024-04-26 15:52:05",
+      "updated_at": "2024-04-26 17:11:59"
+    }
+  ],
+  "sort": [],
+  "title": "Microcontroller board(Photodiode plate)",
+  "foldername": "Microcontroller board(Photodiode plate)",
+  "schfilename": "Microcontroller board(Photodiode plate).json",
+  "schfilemtime": 1714135119971
+}
